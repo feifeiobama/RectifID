@@ -1,0 +1,6 @@
+[submodule "InstaFlow"]
+	path = InstaFlow
+	url = https://github.com/gnobitab/InstaFlow
+[submodule "piecewise_rectified_flow"]
+	path = piecewise_rectified_flow
+	url = https://github.com/magic-research/piecewise-rectified-flow
