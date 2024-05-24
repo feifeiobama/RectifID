@@ -71,7 +71,7 @@ class ObjectRFlow:
             param.requires_grad_(False)
     
     # def enable_ipadapter(self, scale=0.5):
-    #     self.pipe.load_ip_adapter("h94/IP-Adapter", subfolder="models", weight_name="ip-adapter-full-face_sd15.bin")  # to modify
+    #     self.pipe.load_ip_adapter("h94/IP-Adapter", subfolder="models", weight_name="ip-adapter_sd15.bin")  # to modify
     #     self.pipe.set_ip_adapter_scale(scale)
     #     self.ipadapter = True
     
@@ -95,6 +95,7 @@ class ObjectRFlow:
                 self.ref_image_cropped = ref_image
             ref_image_processed = self.processor(images=self.ref_image_cropped, return_tensors="pt")['pixel_values'].to('cuda')
             self.ref_embedding = self.model(ref_image_processed)[0][:, 0]
+            self.cropped_image = np.array(ref_image)
     
     def forward(self, prompt, num_steps, latents0, callback):
         if not self.ipadapter:
