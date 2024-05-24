@@ -1,6 +1,6 @@
 # RectifID
 
-Code for "RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance".
+Code for [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance](https://arxiv.org/abs/2405.14677).
 
 ## Requirements
 
@@ -44,6 +44,19 @@ The following results were obtained with [PeRFlow](https://github.com/magic-rese
 | ![multi_person](assets/multi_person.jpg)   | ![multi_person](assets/multi_object.jpg)   |
 
 Please see the paper appendix for more results.
+
+## Citation
+
+If you find this code useful, please consider citing:
+
+```
+@journal{sun2024rectifid,
+  title={RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance},
+  author={Sun, Zhicheng and Yang, Zhenhao and Jin, Yang and Chi, Haozhe and Xu, Kun and Xu, Kun and Chen, Liwei and Jiang, Hao and Zhang, Di and Song, Yang and Gai, Kun and Mu, Yadong},
+  journal={arXiv preprint arXiv:2405.14677},
+  year={2024}
+}
+```
 
 ## Acknowledgement
 
