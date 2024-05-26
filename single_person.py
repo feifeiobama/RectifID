@@ -178,6 +178,7 @@ class PersonRFlow:
             loss.backward()
             grad_norm = latents.grad.reshape(num_steps, -1).norm(dim=-1)
             latents.grad /= grad_norm.reshape(num_steps, 1, 1, 1).clamp(min=1)
+            # latents.grad.clamp_(min=-2e-2, max=2e-2)  # optional for removing artifacts
             optimizer.step()
             del image
 
