@@ -151,8 +151,7 @@ class PersonRFlow:
             callback_kwargs['latents'] += latents_last[i:(i+1)].detach() - callback_kwargs['latents'].detach()
             callback_kwargs['latents'] += latents_e.detach() - latents_last_e[i:(i+1)].detach()
             # callback_kwargs['latents'] += latents[i:(i+1)].detach() - latents_last_e[i:(i+1)].detach()
-            gamma_s_e = self.scheduler.get_window_alpha(t)[4]
-            callback_kwargs['latents'] += (latents[i:(i+1)].detach() - latents_last_e[i:(i+1)].detach()) * ((1 - gamma_s_e ** 2) ** 0.5)
+            callback_kwargs['latents'] += (latents[i:(i+1)].detach() - latents_last_e[i:(i+1)].detach()) * 0.95796674
             latents_last[i:(i+1)].copy_(callback_kwargs['latents'])
             latents_last_e[i:(i+1)].data.copy_(latents_e)
             latents[i:(i+1)].data.copy_(latents_e)
