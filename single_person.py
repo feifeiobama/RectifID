@@ -187,9 +187,9 @@ class PersonRFlow:
         os.makedirs(osp.dirname(out), exist_ok=True)
         plt.imsave(out, np.array(image.permute(1, 2, 0).cpu() * 255, dtype=np.uint8))
     
-    def generate_multi_prompt(self, prompts, outs, num_steps=4):
+    def generate_multi_prompt(self, prompts, outs, num_iterations=50, num_steps=4, guidance=1.):
         for prompt, out in zip(prompts, outs):
-            self.generate(prompt, self.seed, out, num_steps=num_steps)
+            self.generate(prompt, self.seed, out, num_iterations=num_iterations, num_steps=num_steps, guidance=guidance)
 
 
 def parse_args(single_ref=False):
