@@ -150,9 +150,9 @@ class ObjectRFlow:
                 results = self.detector_processor2.post_process_image_guided_detection(outputs=detector_outputs, target_sizes=target_sizes)
                 if len(results[0]['scores']) != 0:
                     box = results[0]['boxes'][results[0]['scores'].argmax()].tolist()
-                    box = [min(max(round(b), 0), 512) for b in box]
+                    box = [min(max(round(b), 0), self.size) for b in box]
                 else:
-                    box = [0, 0, 512, 512]
+                    box = [0, 0, self.size, self.size]
             image_cropped = TF.crop(image, box[1], box[0], box[3]-box[1], box[2]-box[0])
             
             image_processed = (F.interpolate(image_cropped.unsqueeze(0), (224, 224)) - self.OPENAI_CLIP_MEAN[..., np.newaxis, np.newaxis]) / self.OPENAI_CLIP_STD[..., np.newaxis, np.newaxis]
