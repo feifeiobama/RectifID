@@ -54,7 +54,7 @@ Please see the paper appendix for more results.
 If you find this code useful, please consider citing:
 
 ```
-@journal{sun2024rectifid,
+@article{sun2024rectifid,
   title={RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance},
   author={Sun, Zhicheng and Yang, Zhenhao and Jin, Yang and Chi, Haozhe and Xu, Kun and Xu, Kun and Chen, Liwei and Jiang, Hao and Zhang, Di and Song, Yang and Gai, Kun and Mu, Yadong},
   journal={arXiv preprint arXiv:2405.14677},
