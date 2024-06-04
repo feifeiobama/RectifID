@@ -2,6 +2,10 @@
 
 Code for [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance](https://arxiv.org/abs/2405.14677).
 
+## New Updates
+
+* [2024-06] Our code now supports SDXL. See `single_person_sdxl.py`.
+
 ## Requirements
 
 * Install insightface, onnxruntime-gpu, onnx2torch, kornia, deepface, and the dependencies of [PeRFlow](https://github.com/magic-research/piecewise-rectified-flow).

@@ -152,6 +152,11 @@ class PersonRFlow:
             callback_kwargs['latents'] += latents_e.detach() - latents_last_e[i:(i+1)].detach()
             # callback_kwargs['latents'] += latents[i:(i+1)].detach() - latents_last_e[i:(i+1)].detach()
             callback_kwargs['latents'] += (latents[i:(i+1)].detach() - latents_last_e[i:(i+1)].detach()) * 0.95796674
+            # This constant is a bug (https://github.com/magic-research/piecewise-rectified-flow/issues/7) that should be fixed with the following code:
+            # _, _, _, _, gamma_s_e, _, _ = self.scheduler.get_window_alpha(t / self.scheduler.config.num_train_timesteps)
+            # lambda_s = 1 / gamma_s_e
+            # eta_s = 1 * ( 1- gamma_s_e**2)**0.5 / gamma_s_e
+            # callback_kwargs['latents'] += (latents[i:(i+1)].detach() - latents_last_e[i:(i+1)].detach()) * eta_s / lambda_s
             latents_last[i:(i+1)].copy_(callback_kwargs['latents'])
             latents_last_e[i:(i+1)].data.copy_(latents_e)
             latents[i:(i+1)].data.copy_(latents_e)
