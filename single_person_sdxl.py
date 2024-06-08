@@ -199,11 +199,11 @@ def parse_args(single_ref=False):
         parser.add_argument('--prompt', default=['Selfie of a middle-aged person on a yacht'], type=str, nargs='+')
         parser.add_argument('--out', default=[], type=str, nargs='+')
     parser.add_argument('--model', default='PeRFlow', type=str)
-    parser.add_argument('--iteration', default=50, type=int)
+    parser.add_argument('--iteration', default=100, type=int)
     parser.add_argument('--step', default=4, type=int)
     parser.add_argument('--device', default=0, type=int)
     parser.add_argument('--seed', default=42, type=int)
-    parser.add_argument('--guidance', default=2., type=float)
+    parser.add_argument('--guidance', default=1., type=float)
     args = parser.parse_args()
 
     if single_ref:
