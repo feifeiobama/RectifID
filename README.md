@@ -8,6 +8,7 @@ Code for [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidan
 
 ## Requirements
 
+* A GPU with a minimum of 12.5GB memory.
 * Install insightface, onnxruntime-gpu, onnx2torch, kornia, deepface, and the dependencies of [PeRFlow](https://github.com/magic-research/piecewise-rectified-flow).
 * Download [antelopev2](https://github.com/deepinsight/insightface/tree/master/python-package#model-zoo) and put the `.onnx` models in this folder.
 * To use 2-rectified flow, add the parameter `callback_on_step_end` to `InstaFlow/code/pipeline_rf.py` according to [this code](https://github.com/huggingface/diffusers/blob/7e808e768a7305b3f8f9e981ad14f2de3598e9a6/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion.py#L757).
@@ -32,7 +33,7 @@ Code for [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidan
   * single-object: `single_object_perflow.ipynb` and `single_object_2rflow.ipynb`
   * multi-person: `multi_person_perflow.ipynb`
   * multi-object: `multi_object_perflow.ipynb`
-  
+
 * For face-centric generation, please include the trigger word "person" in your prompt, and optionally append ", face" at the end.
 
 ## Results
