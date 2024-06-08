@@ -6,6 +6,8 @@ Code for [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidan
 
 * [2024-06] Our code now supports SDXL. See `single_person_sdxl.py`.
 
+  ![single_person_sdxl](assets/single_person_sdxl.jpg)
+
 ## Requirements
 
 * A GPU with a minimum of 12.5GB memory.
