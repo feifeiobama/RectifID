@@ -4,7 +4,7 @@ Code for [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidan
 
 ## New Updates
 
-* [2024-06] Our code now supports SDXL. See `single_person_sdxl.py`.
+* [2024-06] Our code now supports SDXL. See `single_person_sdxl.py` and the [results](assets/single_person_sdxl.pdf).
 
   ![single_person_sdxl](assets/single_person_sdxl.jpg)
 
@@ -67,4 +67,6 @@ If you find this code useful, please consider citing:
 
 ## Acknowledgement
 
-This code is based on [PeRFlow](https://github.com/magic-research/piecewise-rectified-flow) and [InstaFlow](https://github.com/gnobitab/InstaFlow).
+This code is based on [PeRFlow](https://github.com/magic-research/piecewise-rectified-flow) and [InstaFlow](https://github.com/gnobitab/InstaFlow), thanks to their efforts in open-sourcing.
+
+Related projects worth checking out: [DOODL](https://github.com/salesforce/DOODL) (CVPR'23), [FlowGrad](https://github.com/gnobitab/FlowGrad) (CVPR'23), [DNO](https://github.com/korrawe/Diffusion-Noise-Optimization) (ICCV'23), [InitNO](https://github.com/xiefan-guo/initno) (CVPR'24), [DSG](https://github.com/LingxiaoYang2023/DSG2024) (ICML'24), [D-Flow](https://arxiv.org/abs/2402.14017) (ICML'24), [RFDS](https://github.com/yangxiaofeng/rectified_flow_prior) (concurrent), [ReNO](https://github.com/ExplainableML/ReNO) (concurrent).
