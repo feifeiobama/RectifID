@@ -16,6 +16,7 @@ import torchvision.transforms.functional as TF
 
 from diffusers import StableDiffusionPipeline, StableDiffusionXLPipeline
 from diffusers.utils.torch_utils import randn_tensor
+from diffusers.utils import load_image
 from piecewise_rectified_flow.src.scheduler_perflow import PeRFlowScheduler
 from InstaFlow.code.pipeline_rf import RectifiedFlowPipeline
 from utils import get_dW_and_merge
@@ -69,7 +70,7 @@ class PersonRFlow:
         tf.config.set_visible_devices([], device_type='GPU')
     
     # def enable_ipadapter(self, scale=0.5):
-    #     self.pipe.load_ip_adapter("h94/IP-Adapter", subfolder="models", weight_name="ip-adapter-full-face_sd15.bin")
+    #     self.pipe.load_ip_adapter("h94/IP-Adapter", subfolder="sdxl_models", weight_name="ip-adapter_sdxl.bin", torch_dtype=torch.bfloat16)
     #     self.pipe.set_ip_adapter_scale(scale)
     #     self.ipadapter = True
     
@@ -93,7 +94,8 @@ class PersonRFlow:
             ) * 2 - 1
 
             self.ref_embedding = self.model(ref_image_cropped)
-            self.cropped_image = np.array((ref_image_cropped[0] / 2 + 0.5).cpu().permute(1, 2, 0) * 255, dtype=np.uint8)
+            # self.cropped_image = np.array((ref_image_cropped[0] / 2 + 0.5).cpu().permute(1, 2, 0) * 255, dtype=np.uint8)
+            self.cropped_image = load_image(ref)
         
         try:
             self.attribute = DeepFace.analyze(img_path=ref, actions = ['gender', 'race'])
@@ -105,8 +107,9 @@ class PersonRFlow:
             return self._forward(self.pipe, prompt=prompt, height=self.size, width=self.size, num_inference_steps=num_steps, guidance_scale=self.guidance_scale,
                 latents=latents0, output_type=output_type, return_dict=False, callback_on_step_end=callback)[0][0]
         else:
-            return self._forward(self.pipe, prompt=prompt, height=self.size, width=self.size, ip_adapter_image=self.cropped_image, num_inference_steps=num_steps,
-                guidance_scale=self.guidance_scale, latents=latents0, output_type=output_type, return_dict=False, callback_on_step_end=callback)[0][0]
+            with torch.autocast('cuda', dtype=torch.bfloat16):
+                return self._forward(self.pipe, prompt=prompt, height=self.size, width=self.size, ip_adapter_image=self.cropped_image, num_inference_steps=num_steps,
+                    guidance_scale=self.guidance_scale, latents=latents0, output_type=output_type, return_dict=False, callback_on_step_end=callback)[0][0]
     
     def generate(self, prompt, seed, out, num_iterations=50, num_steps=4, verbose=True, guidance=1.):
         if self.attribute is not None:
