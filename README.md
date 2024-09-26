@@ -1,6 +1,6 @@
 # RectifID
 
-Code for [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance](https://arxiv.org/abs/2405.14677).
+Code for NeurIPS 2024 paper [RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance](https://arxiv.org/abs/2405.14677).
 
 ## New Updates
 
@@ -57,10 +57,10 @@ Please see the paper appendix for more results.
 If you find this code useful, please consider citing:
 
 ```
-@article{sun2024rectifid,
+@inproceedings{sun2024rectifid,
   title={RectifID: Personalizing Rectified Flow with Anchored Classifier Guidance},
-  author={Sun, Zhicheng and Yang, Zhenhao and Jin, Yang and Chi, Haozhe and Xu, Kun and Xu, Kun and Chen, Liwei and Jiang, Hao and Zhang, Di and Song, Yang and Gai, Kun and Mu, Yadong},
-  journal={arXiv preprint arXiv:2405.14677},
+  author={Sun, Zhicheng and Yang, Zhenhao and Jin, Yang and Chi, Haozhe and Xu, Kun and Xu, Kun and Chen, Liwei and Jiang, Hao and Song, Yang and Gai, Kun and Mu, Yadong},
+  booktitle={Advances in Neural Information Processing Systems},
   year={2024}
 }
 ```
