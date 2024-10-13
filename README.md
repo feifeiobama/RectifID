@@ -4,6 +4,7 @@ Code for NeurIPS 2024 paper [RectifID: Personalizing Rectified Flow with Anchore
 
 ## New Updates
 
+* [2024-10] We open source our evaluation toolkit at [Personalization_Evaluation_Tools](https://github.com/JeffreyYzh/Personalization_Evaluation_Tools).
 * [2024-06] Our code now supports SDXL. See `single_person_sdxl.py` and the [results](assets/single_person_sdxl.pdf).
 
   ![single_person_sdxl](assets/single_person_sdxl.jpg)
